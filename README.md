@@ -6,7 +6,7 @@ A simple App that fetches data from the Hacker News Top Stories API and displays
 
 # Approach
 
-The UI is built using `React + Typescript` and styled using `Styled-Components`. `Framer-Motion` is used for UI animations. A `SkeltonLoader` component is shown while data is being fetched from the API and a `useInfiniteScroll` custom hook is used to render more data as the user reaches near the bottom of the page. When the use clicks on the title of the individual story, they are navigated to the actual page on a new tab.
+The UI is built using `React + Typescript` and styled using `Styled-Components`. `Framer-Motion` is used for UI animations. A `SkeltonLoader` component is shown while data is being fetched from the API and a `useInfiniteScroll` custom hook is used to render more data as the user reaches near the bottom of the page. The `fetchStories` async function handles the API calls and toggles the `isFetching` state. The storyIds from the first API call are sliced and mapped accordingly with the `count` from the `useInfiniteScroll` hook to return data for each story. When the use clicks on the title of the individual story, they are navigated to the actual page on a new tab.
 
 # Optmizations
 
@@ -14,4 +14,4 @@ The `ListItems` component is wrapped in the `React.memo` higher order component 
 
 # Tests
 
-`React-testing-library` is used along with `MSW` to make sure the UI is rendered correctly and by mocking the API calls. By using `MSW`, we can avoid directly mocking the Fetch API and still have confidence that fetch function is being called correctly.
+`React-testing-library` is used along with `MSW` to make sure the UI is rendered correctly and by mocking the API calls. By using `MSW`, we can avoid directly mocking the Fetch API and still have confidence that the fetch function is being called correctly.
